@@ -1,0 +1,8 @@
+# Composer
+composer.phar
+/vendor/
+
+# User
+credentials.json
+token.json
+*.env
