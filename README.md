@@ -1,7 +1,5 @@
 # Script for transfering iCanteen data to Google Calendar
 
----
-
 **Made with ❤️ by Jakub Vorel**
 
 First, you need Google Calendar API => [API Quickstart | Google Developers](https://developers.google.com/calendar/api/quickstart/php)
@@ -17,5 +15,3 @@ $calendarId = $_ENV['CALENDAR_ID'];
 ```
 
 You can run the script once more and now you will be able to select the menu for x days (depending on the kitchen 😉) 
-
-
