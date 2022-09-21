@@ -90,8 +90,8 @@ foreach ($nodeList as $n) {
     $datum1 = explode('Jídelníček na', $den); // explode the contents
     $datum2 = explode('-', $datum1[1]); // explode the contents
     $datum3 = $datum2[0]; // get the contents
-    $datum_zacatek = date("c", strtotime("$datum3 12:35:00")); // Start date
-    $datum_konec = date("c", strtotime("$datum3 13:05:00")); // End date
+    $datum_zacatek = date("c", strtotime("$datum3 13:30:00")); // Start date
+    $datum_konec = date("c", strtotime("$datum3 14:00:00")); // End date
 
     $obed1 = explode('Oběd 1 --', $den);
     $obed2 = explode('(', $obed1[1]);
