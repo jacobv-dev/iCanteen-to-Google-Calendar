@@ -64,7 +64,7 @@ function getClient()
         file_put_contents($tokenPath, json_encode($client->getAccessToken()));
     }
     return $client;
-}
+};
 
 $url = file_get_contents($_ENV["ICANTEEN_URL"]);
 
@@ -72,7 +72,7 @@ $dom = new DOMDocument('1.0', 'UTF-8');
 @$dom->loadHTML($url);
 $xpath = new DomXPath($dom);
 
-$nodeList = $xpath->query("//div[@class='jidelnicekDen']"); // Obsahuje všechny dny, které jsou ukázány v jídelníku (např. 7)
+$nodeList = $xpath->query("//div[@class='jidelnicekDen']"); // Obsahuje všechny dny - počet, které jsou ukázány v jídelníku (např. 7)
 
 $node = $nodeList->item(1); // Obsahuje celý content classy jidelnicekDen a vypíše se jako string pomocí $node->nodeValue
 
@@ -106,8 +106,8 @@ foreach ($nodeList as $n) {
     $zdroj2 = explode(',', $obed6);
 
     $polevka = ucfirst(trim($zdroj1[0])) ?: 'Polévka'; // Polévka
-    $jednicka = ucfirst(trim($zdroj1[1])) ?: 'Jednička'; // Polévka
-    $dvojka = ucfirst(trim($zdroj2[1])) ?: 'Dvojka'; // Polévka
+    $jednicka = ucfirst(trim($zdroj1[1])) . ", " . trim($zdroj1[2]) ?: 'Jednička'; // Hlavní jídlo 1 + příloha
+    $dvojka = ucfirst(trim($zdroj2[1])) . ", " . trim($zdroj2[2]) ?: 'Dvojka'; // Hlavní jídlo 2 + příloha
 
     $vyber_jidla = (int)readline("Vyber jídlo, které sis navolil: na $datum3 \n1. $jednicka \n2. $dvojka \nVýběr: "); // Vybere jídlo, které sis navolil a přidá do kalendáře
 
@@ -143,6 +143,6 @@ foreach ($nodeList as $n) {
     ));
 
     $event = $service->events->insert($calendarId, $event);
-}
+};
 
 printf("$delka events successfully added to calendar."); // Pokud se vše povede
